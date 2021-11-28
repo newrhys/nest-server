@@ -1,0 +1,11 @@
+# 数据库配置
+
+db:
+  type: mysql
+  host: localhost
+  port: 3306
+  username: root
+  password: cc961111
+  database: nest
+  synchronize: true # 自动同步表
+
