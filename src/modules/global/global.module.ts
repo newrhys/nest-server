@@ -6,6 +6,7 @@ import { join } from 'path'
 import { existsSync, readFileSync } from 'fs'
 import { load } from 'js-yaml'
 import { cloneDeepWith, merge } from 'lodash'
+import { LoggerModule } from '../logger/logger.module'
 
 export interface GlobalModuleOptions {
   yamlFilePath?: string[] // 配置文件路径
@@ -46,6 +47,15 @@ export class GlobalModule {
             return configs
           }
         ]
+      }),
+      // 日志模块
+      LoggerModule.forRoot({
+        isGlobal: true,
+        useFactory: (configService: ConfigService) => {
+          const path = configService.get('logsPath')
+          return { filename: join(rootPath, `logs/${path}/${path}.log`) }
+        },
+        inject: [ConfigService]
       })
     ]
     if (typeorm) {

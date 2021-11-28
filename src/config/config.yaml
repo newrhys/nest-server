@@ -9,3 +9,6 @@ db:
   database: nest
   synchronize: true # 自动同步表
 
+# 日志存放目录
+
+logsPath: apps
