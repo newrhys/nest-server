@@ -12,3 +12,14 @@ db:
 # 日志存放目录
 
 logsPath: apps
+
+# Swagger 配置
+
+swagger:
+  title: 接口文档
+  description: code:状态码，message:提示信息，data:返回值
+  path: api
+
+serve:
+  port: 3100
+  prefix: # 路径前缀
